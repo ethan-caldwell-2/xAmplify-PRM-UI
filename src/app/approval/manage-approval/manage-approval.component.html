@@ -52,11 +52,11 @@
             </table>
           </div>
           <div class="alert alert-info text-center" *ngIf="approveList?.length==0">
-            <strong>No Data Found</strong>
+            <strong> No Data Found </strong>
           </div>
         </section>
         <!--Pagination-->
-        <div class="pdl-mgt" *ngIf="pagination?.totalRecords>0">
+        <div class="pdl-mgt" *ngIf=" pagination?.totalRecords>0 ">
           <app-pagination [pagination]="pagination" (notifyParentDropDown)="getAllApprovalList($event)"
             (notifyParent)="paginateList($event)"></app-pagination>
         </div>
