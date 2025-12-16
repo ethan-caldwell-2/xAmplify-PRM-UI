@@ -2585,47 +2585,16 @@ export class ManageContactsComponent implements OnInit, AfterViewInit, AfterView
 			this.customResponse = new CustomResponse('ERROR', tempValidationMessage, true);
 		}
 	}
+
 	ngOnInit() {
 		this.callInitMethods();
 		/**** user guide ****/
 		this.getMergeTagsForDifferentModules();
 	}
 
-
-
 	callInitMethods() {
 		try {
 			this.getCompanyId();
-
-			/*if (this.loggedInThroughVanityUrl){
-				if (this.socialNetworkForSyncLocal == 'google'
-					|| this.socialNetworkForSyncLocal == 'salesforce'
-					|| this.socialNetworkForSyncLocal == 'zoho') {
-					let message: string = '';
-					message = localStorage.getItem('oauthCallbackValidationMessage');
-					localStorage.removeItem('oauthCallbackValidationMessage');
-					if (message != null && message.length > 0) {
-						this.customResponse = new CustomResponse('ERROR', message, true);
-					} else if (this.contactService.oauthCallbackMessage != null && this.contactService.oauthCallbackMessage.length > 0) {
-						message = this.contactService.oauthCallbackMessage;
-						this.contactService.oauthCallbackMessage = '';
-						this.customResponse = new CustomResponse('ERROR', message, true);
-					}else{
-						  //this.socialContact.socialNetwork = localStorage.getItem('socialNetwork');
-						  //this.socialContact.contactListId = JSON.parse(localStorage.getItem('selectedContactListId'));
-						  //this.socialContact.contactType = localStorage.getItem('contactType');
-						  //this.socialContact.alias = localStorage.getItem('alias');
-						  this.syncronizeContactList( this.socialContact);
-						  localStorage.removeItem("currentPage");
-						  localStorage.removeItem("currentModule");
-						  localStorage.removeItem("selectedContactListId");
-						  localStorage.removeItem("socialNetwork");
-						  localStorage.removeItem("contactType");
-						  localStorage.removeItem("alias");
-					}
-				}
-			}else */
-
 			if (this.contactService.socialProviderName == 'google'
 				|| this.contactService.socialProviderName == 'salesforce'
 				|| this.contactService.socialProviderName == 'zoho') {
@@ -2639,7 +2608,6 @@ export class ManageContactsComponent implements OnInit, AfterViewInit, AfterView
 					this.socialContact.contactListId = JSON.parse(localStorage.getItem('selectedContactListId'));
 					this.socialContact.contactType = localStorage.getItem('contactType');
 					this.socialContact.alias = localStorage.getItem('alias');
-					// this.syncronizeContactList(this.socialContact);
 					localStorage.removeItem("currentPage");
 					localStorage.removeItem("currentModule");
 					localStorage.removeItem("selectedContactListId");
@@ -2686,12 +2654,8 @@ export class ManageContactsComponent implements OnInit, AfterViewInit, AfterView
 				} else if (e.data != null && e.data.includes("You have already configured")) {
 					localStorage.setItem('validationMessage', e.data);
 				}
-
 			}, false);
-
-
-		}
-		catch (error) {
+		} catch (error) {
 			this.xtremandLogger.error("ERROR : MangeContactsComponent ngOnInit() " + error);
 		}
 	}
