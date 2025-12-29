@@ -2250,7 +2250,7 @@ export class MyProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 			this.activeTabHeader = this.properties.mailIntegration;
 		} else if (this.activeTabName == 'syncWithXamplify') {
 			this.showCustomCRMIntegration = true;
-			this.activeTabHeader = 'xAmplify Integration';
+			this.activeTabHeader = 'Integrations';
 		}
 		if (this.activeTabName != 'syncWithXamplify') {
 			this.showCustomCRMIntegration = false;
